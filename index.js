@@ -36,21 +36,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRoute, statistikRoute);
 
 // Middleware untuk menangani kesalahan 404
-// app.use((req, res, next) => {
-//   res.status(404);
-//   res.render('error', {
-//     message: 'Page Not Found',
-//     error: { status: 404 }
-//   });
-// });
+app.use((req, res, next) => {
+  res.status(404);
+  res.render('error', {
+    message: 'Page Not Found',
+    error: { status: 404 }
+  });
+});
 
 // Middleware untuk menangani kesalahan server
-// app.use((err, req, res, next) => {
-//   res.status(err.status || 500);
-//   res.render('error', {
-//     message: err.message,
-//     error: req.app.get('env') === 'development' ? err : {}
-//   });
-// });
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: req.app.get('env') === 'development' ? err : {}
+  });
+});
 
 app.listen(port, () => console.log(`listening on ${port}`));
