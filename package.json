@@ -1,0 +1,18 @@
+{
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+	  "test": "echo \"Error: no test specified\" && exit 1",
+	  "start": "node index.js",
+	  "dev": "nodemon index.js"
+	},
+	"dependencies": {
+		"path": "^0.12.7",
+		"mongoose": "^8.4.4",
+		"http-errors": "^2.0.0",
+		"express": "^4.19.2",
+		"ejs": "^3.1.10",
+		"dotenv": "^16.4.5",
+		"nodemon": "^3.1.4"
+	}
+}
