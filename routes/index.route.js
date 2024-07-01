@@ -15,6 +15,10 @@ router.get('/struktur_kelurahan', mainController.strukturPemPage);
 router.get('/visi_misi_kelurahan', mainController.visiMisiPage);
 
 
+router.get('/publikasi', mainController.publikasiPage);
+
+
+
 
 
 // router.get('/main_stats');

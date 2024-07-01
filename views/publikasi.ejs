@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data UMKM - Website Kelurahan Fontein</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/images/489px-LOGO_KOTA_KUPANG (1 300x300).webp">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> -->
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+
+</head>
+<body>
+
+    <%- include('partials/header'); -%>
+
+
+    <style>
+        .custom-dropdown:hover .dropdown-menu {
+            display: block;
+            min-width: 100px; /* Sesuaikan dengan lebar yang diinginkan */
+        }
+        .dropdown-item {
+            font-size: 14px; /* Sesuaikan dengan ukuran font yang diinginkan */
+        }
+    </style>
+
+    <div class="container-lg mt-5 mb-5">
+        <h3 class="mb-3">Publikasi Kelurahan Oetete</h3>
+        <table id="publikasiTable" class="table table-striped table-bordered">
+            <thead>
+                <th>No.</th>
+                <th class="text-center">Judul Publikasi</th>
+                <th class="text-center">Tanggal Publikasi</th>
+                <th class="text-center">Deskripsi Publikasi</th>
+                <th class="text-center"></th>
+                <th class="text-center"></th> 
+            </thead>
+            <tbody>
+                <!-- Example row data, replace with your actual data -->
+                <% for(let i=0; i < publikasiData.length ;i++) { %>
+                    <tr>
+                      <td class="text-center"><%= i + 1%></td>
+                      <td class="text-center"><%= publikasiData[i].judul_publikasi %></td>
+                      <td class="text-center"><%= new Date(publikasiData[i].tanggal_publikasi).toLocaleString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></td>
+                      <td class="text-center"><%= publikasiData[i].deskripsi_publikasi %></td>
+                      
+     
+                      <td class="text-center">
+                        <!-- untuk download only -->
+                        <span class="custom-dropdown">
+                            <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuDownload" aria-expanded="false">
+                                Download
+                            </button>
+                            <ul class="dropdown-menu ms-1" aria-labelledby="dropdownMenuDownload">
+      
+                                <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_pdf %>" download="Publikasi.pdf">file .pdf</a></li>
+                                <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_doc %>" download>file .docx</a></li>
+                                <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_excel %>" download>file .xlsx</a></li>
+                            <!-- Tambahkan item dropdown lainnya sesuai kebutuhan -->
+                            </ul>
+                        </span>
+                      </td>
+      
+                      <td class="text-center">
+                        
+                        <span class="custom-dropdown">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuRead" aria-expanded="false">
+                                Read
+                            </button>
+                            <ul class="dropdown-menu ms-1" aria-labelledby="dropdownMenuButton">
+      
+                              <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_pdf %>" diwb target="_blank">file .pdf</a></li>
+                              <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_doc %>" target="_blank">file .docx</a></li>
+                              <li><a class="dropdown-item" href="/<%= publikasiData[i].berkas_publikasi_excel %>" target="_blank">file .xlsx</a></li>
+                          <!-- Tambahkan item dropdown lainnya sesuai kebutuhan -->
+                            </ul>
+                        </span>
+                      </td>
+                      
+      
+                    </tr>
+                    <% } %>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#dtHorizontalVerticalExample').DataTable({
+                "scrollX": true,
+                "scrollY": 200,
+            });
+        });
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <script src="/javascripts/document.js"></script>
+    <script src="/javascripts/darkmode.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <script>
+        lucide.createIcons();
+      
+        $(document).ready(function() {
+          $('#publikasiTable').DataTable({
+            // Set the length menu to allow the user to select how many entries to show
+            lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            
+            // Enable sorting on all columns
+            ordering: true,
+            
+            // Enable pagination
+            paging: true,
+            
+            // Set the default number of entries to display per page
+            pageLength: 5,
+            
+            // Enable searching/filtering
+            searching: true,
+            
+    
+            
+            // Enable responsive design for the table
+            responsive: true
+          });
+        });
+      </script>
+
+
+        <%-include('partials/footer'); -%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+
+</body>
+</html>

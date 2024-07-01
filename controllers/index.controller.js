@@ -2,6 +2,7 @@ import * as umkmServices from '../repositories/umkm.repository.js';
 import * as pendudukServices from '../repositories/penduduk.repository.js';
 import { getAllKegiatan } from '../repositories/kegiatan.repository.js';
  
+import { getAllPublikasi } from '../repositories/publikasi.repository.js';
 
 
 //beranda
@@ -103,6 +104,19 @@ export const visiMisiPage = async(req,res)=>{
     try {
         res.render('visi_misi_kelurahan',{
             title
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const publikasiPage = async(req,res)=>{
+    const title = "Publikasi";
+    try {
+        const publikasiData = await getAllPublikasi();
+        res.render('publikasi',{
+            title,
+            publikasiData
         });
     } catch (error) {
         console.log(error);
