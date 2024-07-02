@@ -43,7 +43,7 @@ Pastikan Anda sudah menginstall software berikut:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Joshtri/website-profil-oetete-1.3-umkm
-   cd admin-fontein-v1.3
+   cd website-profil-oetete-1-3-umkm
 1. **Install Packages:**
    ```bash
    $ pnpm install
