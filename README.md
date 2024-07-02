@@ -42,7 +42,7 @@ Pastikan Anda sudah menginstall software berikut:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/admin-fontein-v1.3.git
+   git clone https://github.com/Joshtri/website-profil-oetete-1.3-umkm
    cd admin-fontein-v1.3
 1. **Install Packages:**
    ```bash
@@ -85,4 +85,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact:
 - 📧 E-Mail - stuffofyos1516@gmail.com
-- Project Link: https://github.com/Joshtri/fontein-si-umkm-1.3
+- Project Link: https://github.com/Joshtri/website-profil-oetete-1.3-umkm
